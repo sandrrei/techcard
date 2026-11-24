@@ -8,6 +8,8 @@ Runs on **Android** and **Ubuntu Touch** from a single Qt/QML code base.
 
 <a href="https://open-store.io/app/techcard.sandrrei"><b>Get it on the OpenStore</b></a> (Ubuntu Touch)
 &nbsp;·&nbsp;
+<a href="https://github.com/sandrrei/techcard/releases/latest"><b>Download the APK</b></a> (Android)
+&nbsp;·&nbsp;
 <a href="https://liberapay.com/sandrrei/donate"><img src="https://liberapay.com/assets/widgets/donate.svg" alt="Donate using Liberapay" align="absmiddle"></a>
 
 <table>
@@ -56,7 +58,7 @@ Runs on **Android** and **Ubuntu Touch** from a single Qt/QML code base.
 
 1. Install the app:
    - **Ubuntu Touch**: from the [OpenStore](https://open-store.io/app/techcard.sandrrei)
-   - **Android**: build it yourself (see [Build](#build)); an APK release is coming soon
+   - **Android**: download the APK from [Releases](https://github.com/sandrrei/techcard/releases/latest) (arm64)
 2. On first start, choose where your CV comes from:
 
    | Option | Use it when |
@@ -180,7 +182,7 @@ docs/                 example CV and screenshots
 
 ## Roadmap
 
-- Signed release APK on GitHub Releases, then IzzyOnDroid
+- Android release on IzzyOnDroid
 - Ubuntu Touch builds for armhf and Ubuntu Touch 24.04
 - PDF export of the CV
 
