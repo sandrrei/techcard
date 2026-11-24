@@ -1,0 +1,14 @@
+<p>TechCard shows your CV as a business card on your phone: profile, experience, skills and your public GitHub projects.</p>
+
+<p>Share it in interviews and events with a QR code:</p>
+<ul>
+<li><b>CV link</b>: opens your public CV page in any phone's browser</li>
+<li><b>Save contact</b>: a vCard that the other person's camera offers to add to their contacts (phone number optional)</li>
+<li>Full-screen mode for showing it across the table</li>
+</ul>
+
+<p>Load your CV from a link to a JSON file (for example a GitHub Gist), paste the JSON or pick a .json file. The open JSON Resume format (jsonresume.org) is supported.</p>
+
+<p>Everything is stored on your phone and works offline. No account, no tracking, no ads. A fictional demo profile lets you try the app first.</p>
+
+<p>The same app also runs on Ubuntu Touch (available on the OpenStore).</p>
