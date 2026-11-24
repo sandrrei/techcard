@@ -4,3 +4,5 @@
 *.click
 *.apk
 CMakeLists.txt.user*
+/dist/
+/build-android-release/
