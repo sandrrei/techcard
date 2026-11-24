@@ -1,0 +1,15 @@
+{
+    "name": "techcard.sandrrei",
+    "description": "Tech business card: CV and public GitHub projects",
+    "architecture": "@CLICK_ARCH@",
+    "title": "TechCard",
+    "hooks": {
+        "techcard": {
+            "apparmor": "techcard.apparmor",
+            "desktop": "techcard.desktop"
+        }
+    },
+    "version": "0.3.2",
+    "maintainer": "Sandro Rei <sandrrei@gmail.com>",
+    "framework": "@CLICK_FRAMEWORK@"
+}

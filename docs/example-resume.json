@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Jane Example",
+    "label": "Site Reliability Engineer",
+    "email": "jane@example.com",
+    "phone": "+1 555 0100",
+    "url": "https://example.com/cv",
+    "summary": "Example profile used to show the format TechCard reads.",
+    "location": { "city": "Lisbon", "countryCode": "PT" },
+    "profiles": [
+      { "network": "LinkedIn", "url": "https://www.linkedin.com/in/jane-example" },
+      { "network": "GitHub", "username": "octocat" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Example Corp",
+      "position": "Site Reliability Engineer",
+      "startDate": "2021-02-01",
+      "highlights": [
+        "Ran Kubernetes clusters across three regions",
+        "Cut incident response time with better alerting"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "Cloud & DevOps", "keywords": ["Kubernetes", "Terraform", "Prometheus"] },
+    { "name": "Languages", "keywords": ["Go", "Python", "Bash"] }
+  ],
+  "projects": [
+    {
+      "name": "Example Project",
+      "description": "What the project does and why it matters.",
+      "keywords": ["Go", "Docker"],
+      "url": "https://github.com/octocat/Hello-World"
+    }
+  ]
+}

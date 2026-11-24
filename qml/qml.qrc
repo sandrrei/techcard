@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>Main.qml</file>
+        <file>CardPage.qml</file>
+        <file>ExperiencePage.qml</file>
+        <file>ProjectsPage.qml</file>
+        <file>SharePage.qml</file>
+        <file>SetupPage.qml</file>
+        <file>FilePicker.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="refresh.png">../assets/refresh.png</file>
+    </qresource>
+    <qresource prefix="/demo">
+        <file alias="example-resume.json">../docs/example-resume.json</file>
+    </qresource>
+</RCC>
