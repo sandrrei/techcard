@@ -11,18 +11,23 @@ Runs on **Android** and **Ubuntu Touch** from a single Qt/QML code base.
   <tr>
     <td align="center"><img src="docs/screenshots/android-card.png" width="220" alt="Card"><br>Card</td>
     <td align="center"><img src="docs/screenshots/android-projects.png" width="220" alt="Projects"><br>Projects</td>
-    <td align="center"><img src="docs/screenshots/android-share.png" width="220" alt="Share"><br>Share (QR)</td>
+    <td align="center"><img src="docs/screenshots/android-share.png" width="220" alt="Share"><br>Share (CV link QR)</td>
   </tr>
   <tr>
     <td align="center"><img src="docs/screenshots/android-experience.png" width="220" alt="Experience"><br>Experience</td>
     <td align="center"><img src="docs/screenshots/android-setup.png" width="220" alt="Setup"><br>Setup</td>
-    <td></td>
+    <td align="center"><img src="docs/screenshots/android-contact.png" width="220" alt="Contact QR"><br>Share (contact QR)</td>
   </tr>
   <tr><th colspan="3">Ubuntu Touch</th></tr>
   <tr>
     <td align="center"><img src="docs/screenshots/ubuntu-touch-card.png" width="220" alt="Card on Ubuntu Touch"><br>Card</td>
+    <td align="center"><img src="docs/screenshots/ubuntu-touch-experience.png" width="220" alt="Experience on Ubuntu Touch"><br>Experience</td>
     <td align="center"><img src="docs/screenshots/ubuntu-touch-projects.png" width="220" alt="Projects on Ubuntu Touch"><br>Projects</td>
-    <td align="center"><img src="docs/screenshots/ubuntu-touch-share.png" width="220" alt="Share on Ubuntu Touch"><br>Share (contact QR)</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/ubuntu-touch-link.png" width="220" alt="CV link QR on Ubuntu Touch"><br>Share (CV link QR)</td>
+    <td align="center"><img src="docs/screenshots/ubuntu-touch-share.png" width="220" alt="Contact QR on Ubuntu Touch"><br>Share (contact QR)</td>
+    <td></td>
   </tr>
 </table>
 
