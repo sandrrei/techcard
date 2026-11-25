@@ -49,8 +49,10 @@ Runs on **Android** and **Ubuntu Touch** from a single Qt/QML code base.
 - **Share by QR code**
   - *CV link*: opens your public CV page in any phone's browser
   - *Save contact*: a vCard that the camera app offers to add to contacts (phone number optional)
+  - *LinkedIn / GitHub*: your profiles, when they are in the CV
   - full-screen mode for showing it across the table
 - **Works offline**: the last CV and repositories are kept on the device
+- **Dark mode**: follows the system theme (Android: or choose light / dark in Edit)
 - **Private**: no account, no tracking; your data stays on your phone and your own server
 - **Demo profile** to try the app before setting it up
 

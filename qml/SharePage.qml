@@ -7,12 +7,28 @@ Item {
     id: page
 
     property bool withPhone: true
-    // 0 = link to the CV page, 1 = vCard contact
-    readonly property int mode: modeBar.currentIndex
+
+    // What can be shared. Each option only appears when the CV has that link.
+    readonly property var options: {
+        var cv = store.cv
+        var list = []
+        if (store.cardUrl)
+            list.push({ key: "cv", label: qsTr("CV"), url: store.cardUrl })
+        if (cv.name)
+            list.push({ key: "contact", label: qsTr("Contact"), url: "" })
+        if (cv.linkedin && cv.linkedin !== store.cardUrl)
+            list.push({ key: "linkedin", label: "LinkedIn", url: cv.linkedin })
+        var gh = cv.github || (store.githubUser ? "https://github.com/" + store.githubUser : "")
+        if (gh)
+            list.push({ key: "github", label: "GitHub", url: gh })
+        return list
+    }
+    readonly property var current: options.length > 0
+        ? options[Math.min(modeBar.currentIndex, options.length - 1)] : null
+    readonly property bool isContact: current !== null && current.key === "contact"
     // store.cv is read here so the vCard is rebuilt whenever the CV changes
-    readonly property string payload: mode === 0
-        ? store.cardUrl
-        : (store.cv, store.vcard(withPhone))
+    readonly property string payload: current === null ? ""
+        : (isContact ? (store.cv, store.vcard(withPhone)) : current.url)
 
     ColumnLayout {
         anchors.fill: parent
@@ -25,8 +41,13 @@ Item {
             // otherwise "tab width = bar width / count" makes a polish loop (white screen)
             implicitWidth: 0
             Layout.fillWidth: true
-            TabButton { text: qsTr("CV link"); width: modeBar.width / modeBar.count }
-            TabButton { text: qsTr("Save contact"); width: modeBar.width / modeBar.count }
+            Repeater {
+                model: page.options
+                TabButton {
+                    text: modelData.label
+                    width: modeBar.width / Math.max(1, modeBar.count)
+                }
+            }
         }
 
         // White card behind the QR so it scans well in dark themes too
@@ -49,9 +70,7 @@ Item {
                 width: parent.width - 32
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.Wrap
-                text: page.mode === 0 && store.cv.name
-                      ? qsTr("Add a public CV page in Edit to get a link QR code")
-                      : qsTr("Loading…")
+                text: qsTr("Loading…")
                 color: "#555555"
             }
             MouseArea {
@@ -64,14 +83,14 @@ Item {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
-            text: page.mode === 0
-                  ? store.cardUrl
-                  : qsTr("Scan with the camera to save my contact")
+            text: page.current === null ? ""
+                  : page.isContact ? qsTr("Scan with the camera to save my contact")
+                  : page.current.url
         }
 
         CheckBox {
             Layout.alignment: Qt.AlignHCenter
-            visible: page.mode === 1
+            visible: page.isContact
             text: qsTr("Include phone number")
             checked: page.withPhone
             onToggled: page.withPhone = checked

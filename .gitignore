@@ -6,3 +6,4 @@
 CMakeLists.txt.user*
 /dist/
 /build-android-release/
+/instagram/

@@ -325,6 +325,38 @@ void DataStore::resetConfig()
     saveConfig();
 }
 
+// ---------------------------------------------------------------- appearance
+
+QString DataStore::savedTheme()
+{
+    const QString t = settings().value(QStringLiteral("ui/theme")).toString();
+    return (t == QLatin1String("light") || t == QLatin1String("dark")) ? t : QStringLiteral("system");
+}
+
+QString DataStore::theme() const
+{
+    return savedTheme();
+}
+
+void DataStore::setTheme(const QString &theme)
+{
+    if (theme == savedTheme())
+        return;
+    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation));
+    settings().setValue(QStringLiteral("ui/theme"), theme);
+    settings().sync();
+    emit themeChanged();
+}
+
+bool DataStore::isAndroid() const
+{
+#ifdef Q_OS_ANDROID
+    return true;
+#else
+    return false;
+#endif
+}
+
 QString DataStore::cardUrl() const
 {
     // Page recruiters open from the "CV link" QR code

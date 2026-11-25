@@ -235,6 +235,40 @@ Flickable {
             onClicked: store.resetConfig()
         }
 
+        // Appearance (Android). Ubuntu Touch follows the system theme by itself.
+        ColumnLayout {
+            visible: store.isAndroid
+            Layout.fillWidth: true
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.topMargin: 16
+            spacing: 4
+
+            Label {
+                text: qsTr("Appearance")
+                font.bold: true
+            }
+            ComboBox {
+                id: themeBox
+                readonly property var values: ["system", "light", "dark"]
+                Layout.fillWidth: true
+                model: [qsTr("Follow system"), qsTr("Light"), qsTr("Dark")]
+                currentIndex: Math.max(0, values.indexOf(store.theme))
+                onActivated: {
+                    store.theme = values[index]
+                    themeNote.visible = true
+                }
+            }
+            Label {
+                id: themeNote
+                visible: false
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                opacity: 0.7
+                text: qsTr("Close and reopen TechCard to apply the new theme.")
+            }
+        }
+
         // Extra space so the last fields can be scrolled above the on-screen keyboard
         Item { Layout.preferredHeight: Qt.inputMethod.visible ? page.height / 2 : 16 }
     }

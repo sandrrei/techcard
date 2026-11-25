@@ -35,6 +35,10 @@ class DataStore : public QObject
     Q_PROPERTY(QString pageUrl READ pageUrl NOTIFY configChanged)
     Q_PROPERTY(bool demo READ demo NOTIFY configChanged)
 
+    // Appearance (Android): "system", "light" or "dark"; applied at the next start
+    Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
+    Q_PROPERTY(bool isAndroid READ isAndroid CONSTANT)
+
 public:
     explicit DataStore(QObject *parent = nullptr);
 
@@ -52,6 +56,12 @@ public:
     QString githubUser() const { return m_githubUser; }
     QString pageUrl() const { return m_pageUrl; }
     bool demo() const { return m_demo; }
+
+    QString theme() const;
+    void setTheme(const QString &theme);
+    bool isAndroid() const;
+    // Read by main() before the QML style is loaded
+    static QString savedTheme();
 
     Q_INVOKABLE void refresh();
 
@@ -76,6 +86,7 @@ signals:
     void lastUpdatedChanged();
     void avatarUrlChanged();
     void configChanged();
+    void themeChanged();
     void cardUrlChanged();
 
 private:

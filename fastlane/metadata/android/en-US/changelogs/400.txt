@@ -1,0 +1,2 @@
+Dark mode on Android: follow the system theme, or choose light or dark in Edit.
+Share: QR codes for LinkedIn and GitHub too.

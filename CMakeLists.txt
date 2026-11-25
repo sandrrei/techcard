@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(techcard VERSION 0.3.2 LANGUAGES CXX)
+project(techcard VERSION 0.4.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -48,6 +48,17 @@ else()
 endif()
 
 target_include_directories(techcard PRIVATE src src/third_party)
+
+if(ANDROID)
+    # Used to read Android's dark theme setting ("Follow system" appearance)
+    find_package(Qt5 QUIET COMPONENTS AndroidExtras)
+    if(Qt5AndroidExtras_FOUND)
+        target_link_libraries(techcard PRIVATE Qt5::AndroidExtras)
+        target_compile_definitions(techcard PRIVATE HAVE_ANDROIDEXTRAS)
+    else()
+        message(WARNING "Qt5 AndroidExtras not found: 'Follow system' theme falls back to light")
+    endif()
+endif()
 
 target_link_libraries(techcard PRIVATE
     Qt5::Core Qt5::Gui Qt5::Qml Qt5::Quick Qt5::Network)
