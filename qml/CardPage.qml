@@ -13,6 +13,14 @@ Flickable {
     ScrollBar.vertical: ScrollBar {}
 
     property var cv: store.cv
+    // Changes after every refresh, so a new avatar is downloaded instead of
+    // reusing the old image (GitHub keeps the same avatar URL when it changes)
+    property double avatarStamp: Date.now()
+
+    Connections {
+        target: store
+        onLoadingChanged: if (!store.loading) page.avatarStamp = Date.now()
+    }
 
     ColumnLayout {
         id: column
@@ -58,7 +66,11 @@ Flickable {
                 Image {
                     id: avatar
                     anchors.fill: parent
+                    cache: false
                     source: store.avatarUrl
+                            ? store.avatarUrl + (store.avatarUrl.indexOf("?") < 0 ? "?" : "&")
+                              + "t=" + page.avatarStamp
+                            : ""
                     sourceSize.width: 176
                     sourceSize.height: 176
                     fillMode: Image.PreserveAspectCrop
